@@ -7,11 +7,10 @@ const retryUntilOnline = require(`../`);
 describe(`retryUntilOnline`, () => {
   it(`should be a function`, () => expect(retryUntilOnline).to.be.a(`function`));
 
-  it(`should call callback function when going online`, (done) => {
+  it(`should call the callback function when going online`, (done) => {
     global.navigator = { onLine: false };
 
-    retryUntilOnline({
-      callback: done,
+    retryUntilOnline(done, {
       interval: 100
     });
 
@@ -25,10 +24,9 @@ describe(`retryUntilOnline`, () => {
 
     let callbackCalled = false;
 
-    retryUntilOnline({
-      callback: () => {
-        callbackCalled = true;
-      },
+    retryUntilOnline(() => {
+      callbackCalled = true;
+    }, {
       tries: 2,
       interval: 100
     });
@@ -48,12 +46,12 @@ describe(`retryUntilOnline`, () => {
 
     let offlineCallbackCalled = false;
 
-    retryUntilOnline({
+    retryUntilOnline(() => {}, {
+      tries: 2,
+      interval: 100,
       offlineCallback: () => {
         offlineCallbackCalled = true;
-      },
-      tries: 2,
-      interval: 100
+      }
     });
 
     setTimeout(() => {

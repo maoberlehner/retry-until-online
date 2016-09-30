@@ -1,8 +1,13 @@
-'use strict';
+(function (global, factory) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+  typeof define === 'function' && define.amd ? define(factory) :
+  (global.retryUntilOnline = factory());
+}(this, (function () { 'use strict';
 
-function retryUntilOnline(parameters) {
+function retryUntilOnline(callback, parameters) {
+  if ( callback === void 0 ) callback = function () {};
+
   var defaults = {
-    callback: function () {},
     interval: 500,
     tries: -1,
     offlineCallback: function () {}
@@ -10,13 +15,15 @@ function retryUntilOnline(parameters) {
   var options = Object.assign({}, defaults, parameters);
   if (!navigator.onLine && options.tries !== 0) {
     options.tries--;
-    setTimeout(function () { return retryUntilOnline(options); }, options.interval);
+    setTimeout(function () { return retryUntilOnline(callback, options); }, options.interval);
     return;
   } else if (options.tries === 0) {
     options.offlineCallback();
     return;
   }
-  options.callback();
+  callback();
 }
 
-module.exports = retryUntilOnline;
+return retryUntilOnline;
+
+})));
