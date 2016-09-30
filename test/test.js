@@ -7,7 +7,7 @@ const retryUntilOnline = require(`../`);
 describe(`retryUntilOnline`, () => {
   it(`should be a function`, () => expect(retryUntilOnline).to.be.a(`function`));
 
-  it(`should call callback function when going online`, (done) => {
+  it(`should call the callback function when going online`, (done) => {
     global.navigator = { onLine: false };
 
     retryUntilOnline({

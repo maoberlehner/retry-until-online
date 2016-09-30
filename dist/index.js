@@ -1,4 +1,8 @@
-'use strict';
+(function (global, factory) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+  typeof define === 'function' && define.amd ? define(factory) :
+  (global.retryUntilOnline = factory());
+}(this, (function () { 'use strict';
 
 function retryUntilOnline(parameters) {
   var defaults = {
@@ -19,4 +23,6 @@ function retryUntilOnline(parameters) {
   options.callback();
 }
 
-module.exports = retryUntilOnline;
+return retryUntilOnline;
+
+})));
