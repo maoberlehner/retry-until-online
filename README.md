@@ -42,6 +42,7 @@ retryUntilOnline(function () {
 ### Author
 Markus Oberlehner  
 Twitter: https://twitter.com/MaOberlehner
+PayPal.me: paypal.me/maoberlehner
 
 ### License
 MIT
