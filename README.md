@@ -41,7 +41,7 @@ retryUntilOnline(function () {
 ## About
 ### Author
 Markus Oberlehner  
-Twitter: https://twitter.com/MaOberlehner
+Twitter: https://twitter.com/MaOberlehner  
 PayPal.me: paypal.me/maoberlehner
 
 ### License
