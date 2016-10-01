@@ -4,21 +4,19 @@
   (global.retryUntilOnline = factory());
 }(this, (function () { 'use strict';
 
-function retryUntilOnline(callback, parameters) {
+function retryUntilOnline(callback, opts) {
   if ( callback === void 0 ) callback = function () {};
 
-  var defaults = {
-    interval: 500,
-    tries: -1,
-    offlineCallback: function () {}
-  };
-  var options = Object.assign({}, defaults, parameters);
-  if (!navigator.onLine && options.tries !== 0) {
-    options.tries--;
-    setTimeout(function () { return retryUntilOnline(callback, options); }, options.interval);
+  opts.interval = opts.interval !== undefined ? opts.interval : 500;
+  opts.tries = opts.tries !== undefined ? opts.tries : -1;
+  opts.offlineCallback = opts.offlineCallback !== undefined ? opts.offlineCallback : (function () {});
+
+  if (!navigator.onLine && opts.tries !== 0) {
+    opts.tries--;
+    setTimeout(function () { return retryUntilOnline(callback, opts); }, opts.interval);
     return;
-  } else if (options.tries === 0) {
-    options.offlineCallback();
+  } else if (opts.tries === 0) {
+    opts.offlineCallback();
     return;
   }
   callback();
