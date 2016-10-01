@@ -6,7 +6,7 @@ Imagine a user is traveling by train and browsing your webshop on his phone. He 
 By wrapping AJAX requests with the `retryUntilOnline` function you can prevent failing AJAX requests. Like in the tunnel example, the connection may be only lost for some seconds `retryUntilOnline` will execute the AJAX request as soon as the connection is restored.
 
 ## Demo
-[Find a demo of the concept on codepen.io](http://codepen.io/moberlehner/pen/gwgdJm)
+[Find a demo of the concept on codepen.io](http://codepen.io/moberlehner/full/gwgdJm/)
 
 ## Usage
 ```bash
