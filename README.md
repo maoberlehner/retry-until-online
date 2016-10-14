@@ -1,4 +1,6 @@
 # retry-until-online
+[![Build Status](https://travis-ci.org/maoberlehner/retry-until-online.svg?branch=master)](https://travis-ci.org/maoberlehner/retry-until-online)
+
 Delay the execution of a function until the browser is back online.
 
 Imagine a user is traveling by train and browsing your webshop on his phone. He finds what he is looking for and taps the "Buy now" button. But suddenly: a tunnel. The connection is lost and the AJAX request (for putting the product in the cart) fails.
