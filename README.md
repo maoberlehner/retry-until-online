@@ -40,6 +40,9 @@ retryUntilOnline(function () {
 }, options);
 ```
 
+## Browser compatibility
+This project uses the ES6 `Object.assign()` syntax. Please use a polyfill like [es6-object-assign](https://www.npmjs.com/package/es6-object-assign) or [Babel](https://babeljs.io/) if you want to support IE11 and below.
+
 ## About
 ### Author
 Markus Oberlehner  
