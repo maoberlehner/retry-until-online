@@ -1,14 +1,17 @@
-export default function retryUntilOnline(callback = () => {}, opts) {
-  opts.interval = opts.interval !== undefined ? opts.interval : 500;
-  opts.tries = opts.tries !== undefined ? opts.tries : -1;
-  opts.offlineCallback = opts.offlineCallback !== undefined ? opts.offlineCallback : (() => {});
+export default function retryUntilOnline(callback = () => {}, customOptions) {
+  const defaults = {
+    interval: 500,
+    tries: -1,
+    offlineCallback: () => {},
+  };
+  const options = Object.assign({}, defaults, customOptions);
 
-  if (!navigator.onLine && opts.tries !== 0) {
-    opts.tries--;
-    setTimeout(() => retryUntilOnline(callback, opts), opts.interval);
+  if (!navigator.onLine && options.tries !== 0) {
+    options.tries -= 1;
+    setTimeout(() => retryUntilOnline(callback, options), options.interval);
     return;
-  } else if (opts.tries === 0) {
-    opts.offlineCallback();
+  } else if (options.tries === 0) {
+    options.offlineCallback();
     return;
   }
   callback();

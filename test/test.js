@@ -11,7 +11,7 @@ describe(`retryUntilOnline`, () => {
     global.navigator = { onLine: false };
 
     retryUntilOnline(done, {
-      interval: 100
+      interval: 100,
     });
 
     setTimeout(() => {
@@ -28,7 +28,7 @@ describe(`retryUntilOnline`, () => {
       callbackCalled = true;
     }, {
       tries: 2,
-      interval: 100
+      interval: 100,
     });
 
     setTimeout(() => {
@@ -51,7 +51,7 @@ describe(`retryUntilOnline`, () => {
       interval: 100,
       offlineCallback: () => {
         offlineCallbackCalled = true;
-      }
+      },
     });
 
     setTimeout(() => {

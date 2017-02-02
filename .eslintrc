@@ -1,7 +1,11 @@
 {
-  "extends": "eslint-config-modularis",
   "env": {
     "browser": true,
     "node": true
+  },
+  "extends": "eslint-config-modularis",
+  "plugins": ["compat"],
+  "rules": {
+    "compat/compat": 2
   }
 }

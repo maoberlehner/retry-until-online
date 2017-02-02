@@ -4,7 +4,7 @@
   "keywords": [
     "offline first"
   ],
-  "version": "0.1.5",
+  "version": "1.0.0",
   "author": "Markus Oberlehner",
   "homepage": "https://github.com/maoberlehner/retry-until-online",
   "license": "MIT",
@@ -17,14 +17,15 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "eslint": "^3.6.1",
-    "eslint-config-modularis": "^2.0.0",
-    "eslint-plugin-import": "^2.0.0",
-    "mocha": "^3.1.0",
-    "pre-git": "^3.10.0",
-    "rollup": "^0.36.1",
-    "rollup-plugin-buble": "^0.14.0",
-    "uglify-js": "^2.7.3"
+    "eslint": "^3.14.1",
+    "eslint-config-modularis": "^4.0.0",
+    "eslint-plugin-compat": "^1.0.1",
+    "eslint-plugin-import": "^2.2.0",
+    "mocha": "^3.2.0",
+    "pre-git": "^3.12.0",
+    "rollup": "^0.41.4",
+    "rollup-plugin-buble": "^0.15.0",
+    "uglify-js": "^2.7.5"
   },
   "main": "dist/index.js",
   "jsnext:main": "js/index.js",
@@ -45,5 +46,8 @@
         "npm test"
       ]
     }
-  }
+  },
+  "browserslist": [
+    "> 1%"
+  ]
 }
