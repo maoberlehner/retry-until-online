@@ -28,7 +28,7 @@
     "uglify-js": "^2.7.5"
   },
   "main": "dist/index.js",
-  "jsnext:main": "js/index.js",
+  "module": "js/index.js",
   "scripts": {
     "scripts:bundle": "rollup --config --format umd --name retryUntilOnline --output dist/index.js js/index.js",
     "scripts:minify": "uglifyjs --compress --output dist/index.min.js dist/index.js",
