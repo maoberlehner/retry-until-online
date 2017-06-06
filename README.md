@@ -46,6 +46,7 @@ This project uses the ES6 `Object.assign()` syntax. Please use a polyfill like [
 ## About
 ### Author
 Markus Oberlehner  
+Website: https://markus.oberlehner.net  
 Twitter: https://twitter.com/MaOberlehner  
 PayPal.me: https://paypal.me/maoberlehner
 

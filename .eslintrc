@@ -3,7 +3,7 @@
     "browser": true,
     "node": true
   },
-  "extends": "eslint-config-modularis",
+  "extends": "@avalanche/eslint-config",
   "plugins": ["compat"],
   "rules": {
     "compat/compat": 2
