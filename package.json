@@ -16,9 +16,9 @@
     "url": "https://github.com/maoberlehner/retry-until-online/issues"
   },
   "devDependencies": {
+    "@avalanche/eslint-config": "^0.1.0",
     "chai": "^4.0.2",
     "eslint": "^3.19.0",
-    "eslint-config-modularis": "^4.0.1",
     "eslint-plugin-compat": "^1.0.3",
     "eslint-plugin-import": "^2.3.0",
     "mocha": "^3.4.2",
