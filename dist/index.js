@@ -12,7 +12,9 @@
         var defaults = {
             interval: 500,
             tries: -1,
-            offlineCallback: function () { },
+            offlineCallback: function () {
+                // Intentionally left blank.
+            },
         };
         var options = Object.assign({}, defaults, customOptions);
         if (!navigator.onLine && options.tries !== 0) {
