@@ -9,7 +9,9 @@ export = function retryUntilOnline(
   const defaults = {
     interval: 500,
     tries: -1,
-    offlineCallback: () => {},
+    offlineCallback: () => {
+      // Intentionally left blank.
+    },
   };
   const options = Object.assign({}, defaults, customOptions);
 
@@ -22,4 +24,4 @@ export = function retryUntilOnline(
     return;
   }
   callback();
-}
+};
