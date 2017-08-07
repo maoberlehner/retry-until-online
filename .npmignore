@@ -1,8 +1,9 @@
-.editorconfig
-.esdocrc
-.eslintrc
-
-CONTRIBUTING.md
-rollup.config.js
-
 test
+
+.editorconfig
+.travis.yml
+
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+tsconfig.json
+tslint.json
