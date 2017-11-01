@@ -14,7 +14,8 @@
     "minify": "uglifyjs --compress --output dist/index.min.js dist/index.js",
     "clean": "rimraf dist",
     "lint": "tslint src/**/*.ts",
-    "test": "jest test/"
+    "test": "jest test/",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
