@@ -7,9 +7,6 @@ Imagine a user is traveling by train and browsing your webshop on his phone. He 
 
 By wrapping AJAX requests with the `retryUntilOnline` function you can prevent failing AJAX requests. Like in the tunnel example, the connection may be only lost for some seconds `retryUntilOnline` will execute the AJAX request as soon as the connection is restored.
 
-## Demo
-[Find a demo of the concept on codepen.io](http://codepen.io/moberlehner/full/gwgdJm/)
-
 ## Usage
 ```bash
 # Install the module.
@@ -18,30 +15,37 @@ npm install retry-until-online --save
 
 ```js
 // Load the module.
-var retryUntilOnline = require('retry-until-online');
+import retryUntilOnline from 'retry-until-online';
 
-// Delay the execution of the jQuery AJAX request until the browser is back online.
-retryUntilOnline(function () {
-  $.ajax({ url: 'test.html' });
-});
+// Delay the execution of a jQuery AJAX request until the browser is back online.
+retryUntilOnline({ callback: () => $.ajax({ url: 'test.html' }) })
+  .then((value) => {
+    // This is called after the callback function was called,
+    // `value` is the return value of the callback function.
+  })
+  .catch((value) => {
+    // This is called when `maxTries` is reached and the offline
+    // callback function was called, `value` is the return value
+    // of the offline callback function.
+  });
 ```
 
 ### Options
 ```js
-var retryUntilOnline = require('retry-until-online');
-var options = {
+import retryUntilOnline from 'retry-until-online';
+
+const options = {
+  callback: () => undefined, // Callback function which is called if online.
+  offlineCallback: () => undefined,  // Callback function that is executed if `tries` reaches 0.
   interval: 500, // Interval for checking the online status.
-  tries: -1, // How many times the online status should be checked before giving up (-1 = unlimited).
-  offlineCallback: function () {} // Callback function that is executed if `tries` reaches 0.
+  maxTries: -1 // How many times the online status should be checked before giving up (-1 = unlimited).
 };
 
-retryUntilOnline(function () {
-  // Some code that requires a connection to the internet (e.g. AJAX).
-}, options);
+retryUntilOnline(options);
 ```
 
 ## Browser compatibility
-This project uses the ES6 `Object.assign()` syntax. Please use a polyfill like [es6-object-assign](https://www.npmjs.com/package/es6-object-assign) or [Babel](https://babeljs.io/) if you want to support IE11 and below.
+This project uses ES6 `Object.assign()` and `Promise` language features. Please use polyfills or [Babel](https://babeljs.io/) if you want to support old browsers.
 
 ## About
 ### Author

@@ -4,10 +4,19 @@
   "keywords": [
     "offline first"
   ],
-  "version": "1.1.3",
+  "version": "2.0.0",
   "author": "Markus Oberlehner",
   "homepage": "https://github.com/maoberlehner/retry-until-online",
   "license": "MIT",
+  "scripts": {
+    "build": "npm run clean && tsc && npm run minify",
+    "watch": "npm run clean && tsc -w",
+    "minify": "uglifyjs --compress --output dist/index.min.js dist/index.js",
+    "clean": "rimraf dist",
+    "lint": "tslint src/**/*.ts",
+    "test": "jest test/",
+    "prepublishOnly": "npm run build"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/maoberlehner/retry-until-online"
@@ -16,21 +25,24 @@
     "url": "https://github.com/maoberlehner/retry-until-online/issues"
   },
   "devDependencies": {
-    "chai": "^4.1.0",
-    "mocha": "^3.5.0",
+    "@types/jest": "^21.1.5",
+    "jest": "^21.2.1",
     "rimraf": "^2.6.1",
+    "ts-jest": "^21.1.4",
     "tslint": "^5.5.0",
     "typescript": "^2.4.2",
     "uglify-es": "^3.0.27"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "scripts": {
-    "build": "npm run clean && tsc && npm run minify",
-    "watch": "npm run clean && tsc -w",
-    "minify": "uglifyjs --compress --output dist/index.min.js dist/index.js",
-    "clean": "rimraf dist",
-    "lint": "tslint src/**/*.ts",
-    "test": "mocha"
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.ts$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(js|ts)$"
   }
 }
