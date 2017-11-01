@@ -8,25 +8,27 @@
     }
 })(function (require, exports) {
     "use strict";
-    return function retryUntilOnline(callback, customOptions) {
+    return function retryUntilOnline(options) {
         var defaults = {
+            callback: function () { return undefined; },
+            offlineCallback: function () { return undefined; },
             interval: 500,
-            tries: -1,
-            offlineCallback: function () {
-                // Intentionally left blank.
-            },
+            maxTries: -1,
+            navigator: window.navigator,
         };
-        var options = Object.assign({}, defaults, customOptions);
-        if (!navigator.onLine && options.tries !== 0) {
-            options.tries -= 1;
-            setTimeout(function () { return retryUntilOnline(callback, options); }, options.interval);
-            return;
-        }
-        else if (options.tries === 0) {
-            options.offlineCallback();
-            return;
-        }
-        callback();
+        var _a = Object.assign({}, defaults, options), callback = _a.callback, offlineCallback = _a.offlineCallback, interval = _a.interval, maxTries = _a.maxTries, navigator = _a.navigator;
+        var tries = 0;
+        var resolveCallbackIfOnline = function (resolve, reject) {
+            tries += 1;
+            if (navigator.onLine) {
+                return resolve(callback());
+            }
+            if (tries === maxTries) {
+                return reject(offlineCallback());
+            }
+            setTimeout(function () { return resolveCallbackIfOnline(resolve, reject); }, interval);
+        };
+        return new Promise(function (resolve, reject) { return resolveCallbackIfOnline(resolve, reject); });
     };
 });
 //# sourceMappingURL=index.js.map
