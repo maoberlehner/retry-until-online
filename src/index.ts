@@ -1,27 +1,43 @@
-export = function retryUntilOnline(
-  callback: () => any,
-  customOptions?: {
-    interval?: number;
-    tries?: number;
-    offlineCallback?: () => any;
-  },
-) {
+export = function retryUntilOnline(options?: {
+  callback?: (...args: any[]) => any,
+  offlineCallback?: (...args: any[]) => any,
+  interval?: number,
+  maxTries?: number,
+  navigator?: object,
+}) {
   const defaults = {
+    callback: () => undefined,
+    offlineCallback: () => undefined,
     interval: 500,
-    tries: -1,
-    offlineCallback: () => {
-      // Intentionally left blank.
-    },
+    maxTries: -1,
+    navigator: window.navigator,
   };
-  const options = Object.assign({}, defaults, customOptions);
+  const {
+    callback,
+    offlineCallback,
+    interval,
+    maxTries,
+    navigator,
+  } = Object.assign({}, defaults, options);
 
-  if (!navigator.onLine && options.tries !== 0) {
-    options.tries -= 1;
-    setTimeout(() => retryUntilOnline(callback, options), options.interval);
-    return;
-  } else if (options.tries === 0) {
-    options.offlineCallback();
-    return;
-  }
-  callback();
+  let tries = 0;
+
+  const resolveCallbackIfOnline = (
+    resolve: (value?: any) => void,
+    reject: (value?: any) => void,
+  ) => {
+    tries += 1;
+
+    if (navigator.onLine) {
+      return resolve(callback());
+    }
+
+    if (tries === maxTries) {
+      return reject(offlineCallback());
+    }
+
+    setTimeout(() => resolveCallbackIfOnline(resolve, reject), interval);
+  };
+
+  return new Promise((resolve, reject) => resolveCallbackIfOnline(resolve, reject));
 };

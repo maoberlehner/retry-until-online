@@ -1,6 +1,8 @@
-declare const _default: (callback: () => any, customOptions?: {
+declare const _default: (options?: {
+    callback?: ((...args: any[]) => any) | undefined;
+    offlineCallback?: ((...args: any[]) => any) | undefined;
     interval?: number | undefined;
-    tries?: number | undefined;
-    offlineCallback?: (() => any) | undefined;
-} | undefined) => void;
+    maxTries?: number | undefined;
+    navigator?: object | undefined;
+} | undefined) => Promise<{}>;
 export = _default;
