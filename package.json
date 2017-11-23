@@ -25,13 +25,13 @@
     "url": "https://github.com/maoberlehner/retry-until-online/issues"
   },
   "devDependencies": {
-    "@types/jest": "^21.1.5",
+    "@types/jest": "^21.1.8",
     "jest": "^21.2.1",
-    "rimraf": "^2.6.1",
-    "ts-jest": "^21.1.4",
-    "tslint": "^5.5.0",
-    "typescript": "^2.4.2",
-    "uglify-es": "^3.0.27"
+    "rimraf": "^2.6.2",
+    "ts-jest": "^21.2.3",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.1",
+    "uglify-es": "^3.1.10"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
