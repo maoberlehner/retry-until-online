@@ -1,6 +1,4 @@
-import retryUntilOnline = require('../src');
-
-// TODO set lower interval for faster tests
+import retryUntilOnline = require('./');
 
 describe(`retryUntilOnline()`, () => {
   test(`It should be a function.`, () => expect(typeof retryUntilOnline).toBe(`function`));
@@ -61,7 +59,7 @@ describe(`retryUntilOnline()`, () => {
     const navigator = { onLine: true };
 
     retryUntilOnline({ callback, navigator })
-      .then((value) => {
+      .then((value: string) => {
         expect(value).toBe('foo');
         done();
       });
@@ -72,7 +70,7 @@ describe(`retryUntilOnline()`, () => {
     const navigator = { onLine: false };
 
     retryUntilOnline({ offlineCallback, maxTries: 1, navigator })
-      .catch((value) => {
+      .catch((value: string) => {
         expect(value).toBe('foo');
         done();
       });
