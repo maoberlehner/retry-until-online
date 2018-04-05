@@ -47,9 +47,6 @@ const options = {
 retryUntilOnline(options);
 ```
 
-## Browser compatibility
-This project uses ES6 `Object.assign()` and `Promise` language features. Please use polyfills or [Babel](https://babeljs.io/) if you want to support old browsers.
-
 ## About
 
 ### Author

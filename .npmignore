@@ -1,7 +1,8 @@
+.babelrc
 .editorconfig
+.eslintrc
 .travis.yml
 
 CODE_OF_CONDUCT.md
 CONTRIBUTING.md
-tsconfig.json
-tslint.json
+rollup.config.js
