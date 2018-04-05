@@ -1,4 +1,4 @@
-import retryUntilOnline = require('./');
+import retryUntilOnline from './index';
 
 describe(`retryUntilOnline()`, () => {
   test(`It should be a function.`, () => expect(typeof retryUntilOnline).toBe(`function`));
@@ -36,7 +36,9 @@ describe(`retryUntilOnline()`, () => {
     const callback = jest.fn();
     const navigator = { onLine: false };
 
-    retryUntilOnline({ callback, maxTries: 2, navigator, interval: 50 })
+    retryUntilOnline({
+      callback, maxTries: 2, navigator, interval: 50,
+    })
       .catch(() => {
         expect(callback).not.toBeCalled();
         done();
@@ -47,7 +49,9 @@ describe(`retryUntilOnline()`, () => {
     const offlineCallback = jest.fn();
     const navigator = { onLine: false };
 
-    retryUntilOnline({ offlineCallback, maxTries: 2, navigator, interval: 50 })
+    retryUntilOnline({
+      offlineCallback, maxTries: 2, navigator, interval: 50,
+    })
       .catch(() => {
         expect(offlineCallback).toBeCalled();
         done();
@@ -55,23 +59,23 @@ describe(`retryUntilOnline()`, () => {
   });
 
   test(`It should resolve with the callback return value.`, (done) => {
-    const callback = jest.fn().mockReturnValue('foo');
+    const callback = jest.fn().mockReturnValue(`foo`);
     const navigator = { onLine: true };
 
     retryUntilOnline({ callback, navigator })
-      .then((value: string) => {
-        expect(value).toBe('foo');
+      .then((value) => {
+        expect(value).toBe(`foo`);
         done();
       });
   });
 
   test(`It should reject with the callback return value.`, (done) => {
-    const offlineCallback = jest.fn().mockReturnValue('foo');
+    const offlineCallback = jest.fn().mockReturnValue(`foo`);
     const navigator = { onLine: false };
 
     retryUntilOnline({ offlineCallback, maxTries: 1, navigator })
-      .catch((value: string) => {
-        expect(value).toBe('foo');
+      .catch((value) => {
+        expect(value).toBe(`foo`);
         done();
       });
   });

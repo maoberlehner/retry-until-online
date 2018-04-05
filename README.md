@@ -1,4 +1,5 @@
 # retry-until-online
+
 [![Build Status](https://travis-ci.org/maoberlehner/retry-until-online.svg?branch=master)](https://travis-ci.org/maoberlehner/retry-until-online)
 
 Delay the execution of a function until the browser is back online.
@@ -8,6 +9,7 @@ Imagine a user is traveling by train and browsing your webshop on his phone. He 
 By wrapping AJAX requests with the `retryUntilOnline` function you can prevent failing AJAX requests. Like in the tunnel example, the connection may be only lost for some seconds `retryUntilOnline` will execute the AJAX request as soon as the connection is restored.
 
 ## Usage
+
 ```bash
 # Install the module.
 npm install retry-until-online --save
@@ -31,6 +33,7 @@ retryUntilOnline({ callback: () => $.ajax({ url: 'test.html' }) })
 ```
 
 ### Options
+
 ```js
 import retryUntilOnline from 'retry-until-online';
 
@@ -44,15 +47,15 @@ const options = {
 retryUntilOnline(options);
 ```
 
-## Browser compatibility
-This project uses ES6 `Object.assign()` and `Promise` language features. Please use polyfills or [Babel](https://babeljs.io/) if you want to support old browsers.
-
 ## About
+
 ### Author
+
 Markus Oberlehner  
 Website: https://markus.oberlehner.net  
 Twitter: https://twitter.com/MaOberlehner  
 PayPal.me: https://paypal.me/maoberlehner
 
 ### License
+
 MIT
