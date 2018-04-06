@@ -1,6 +1,6 @@
 .babelrc
 .editorconfig
-.eslintrc
+.eslintrc*
 .travis.yml
 
 CODE_OF_CONDUCT.md

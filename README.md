@@ -41,9 +41,9 @@ import retryUntilOnline from 'retry-until-online';
 
 const options = {
   callback: () => undefined, // Callback function which is called if online.
-  offlineCallback: () => undefined,  // Callback function that is executed if `tries` reaches 0.
+  offlineCallback: () => undefined, // Callback function that is executed if `tries` reaches 0.
   interval: 500, // Interval for checking the online status.
-  maxTries: -1 // How many times the online status should be checked before giving up (-1 = unlimited).
+  maxTries: -1, // How often the online status should be checked before giving up (-1 = unlimited).
 };
 
 retryUntilOnline(options);
