@@ -1,6 +1,7 @@
 # retry-until-online
 
 [![Build Status](https://travis-ci.org/maoberlehner/retry-until-online.svg?branch=master)](https://travis-ci.org/maoberlehner/retry-until-online)
+[![Coverage Status](https://coveralls.io/repos/github/maoberlehner/retry-until-online/badge.svg?branch=master)](https://coveralls.io/github/maoberlehner/retry-until-online?branch=master)
 
 Delay the execution of a function until the browser is back online.
 

@@ -7,6 +7,15 @@ describe(`retryUntilOnline()`, () => {
     expect(retryUntilOnline()).toBeInstanceOf(Promise);
   });
 
+  test(`It should resolve if online.`, () => {
+    expect.assertions(1);
+
+    const navigator = { onLine: true };
+
+    retryUntilOnline({ navigator })
+      .then(value => expect(value).toBeUndefined());
+  });
+
   test(`It should call the given callback function if online.`, () => {
     expect.assertions(1);
 
