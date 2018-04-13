@@ -1,5 +1,7 @@
 # retry-until-online
 
+[![Patreon](https://img.shields.io/badge/patreon-donate-blue.svg)](https://www.patreon.com/maoberlehner)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/maoberlehner)
 [![Build Status](https://travis-ci.org/maoberlehner/retry-until-online.svg?branch=master)](https://travis-ci.org/maoberlehner/retry-until-online)
 [![Coverage Status](https://coveralls.io/repos/github/maoberlehner/retry-until-online/badge.svg?branch=master)](https://coveralls.io/github/maoberlehner/retry-until-online?branch=master)
 [![GitHub stars](https://img.shields.io/github/stars/maoberlehner/retry-until-online.svg?style=social&label=Star)](https://github.com/maoberlehner/retry-until-online)
@@ -56,7 +58,8 @@ retryUntilOnline(options);
 Markus Oberlehner  
 Website: https://markus.oberlehner.net  
 Twitter: https://twitter.com/MaOberlehner  
-PayPal.me: https://paypal.me/maoberlehner
+PayPal.me: https://paypal.me/maoberlehner  
+Patreon: https://www.patreon.com/maoberlehner
 
 ### License
 
