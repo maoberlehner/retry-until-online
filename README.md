@@ -1,6 +1,10 @@
 # retry-until-online
 
+[![Patreon](https://img.shields.io/badge/patreon-donate-blue.svg)](https://www.patreon.com/maoberlehner)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/maoberlehner)
 [![Build Status](https://travis-ci.org/maoberlehner/retry-until-online.svg?branch=master)](https://travis-ci.org/maoberlehner/retry-until-online)
+[![Coverage Status](https://coveralls.io/repos/github/maoberlehner/retry-until-online/badge.svg?branch=master)](https://coveralls.io/github/maoberlehner/retry-until-online?branch=master)
+[![GitHub stars](https://img.shields.io/github/stars/maoberlehner/retry-until-online.svg?style=social&label=Star)](https://github.com/maoberlehner/retry-until-online)
 
 Delay the execution of a function until the browser is back online.
 
@@ -39,9 +43,9 @@ import retryUntilOnline from 'retry-until-online';
 
 const options = {
   callback: () => undefined, // Callback function which is called if online.
-  offlineCallback: () => undefined,  // Callback function that is executed if `tries` reaches 0.
+  offlineCallback: () => undefined, // Callback function that is executed if `tries` reaches 0.
   interval: 500, // Interval for checking the online status.
-  maxTries: -1 // How many times the online status should be checked before giving up (-1 = unlimited).
+  maxTries: -1, // How often the online status should be checked before giving up (-1 = unlimited).
 };
 
 retryUntilOnline(options);
@@ -54,7 +58,8 @@ retryUntilOnline(options);
 Markus Oberlehner  
 Website: https://markus.oberlehner.net  
 Twitter: https://twitter.com/MaOberlehner  
-PayPal.me: https://paypal.me/maoberlehner
+PayPal.me: https://paypal.me/maoberlehner  
+Patreon: https://www.patreon.com/maoberlehner
 
 ### License
 
